@@ -7,7 +7,12 @@ import CarItem from './components/CarItem';
 export default function App() {
   return (
     <View style={styles.container}>
-      <CarItem/>
+      <CarItem 
+        model={"Model 3"}
+        tagline={"Starting from $99,500"}
+        taglineCTA={"Touchless Delivery"}
+        image={require('./assets/images/Model3.jpeg')}
+      />
     </View>
   );
 }

@@ -3,31 +3,42 @@ import { View, Text, ImageBackground, StatusBar } from 'react-native'
 import styles from './styles'
 import StyledButton from '../StyledButton/index';
 
-const CarItem = () => {
+const CarItem = (props) => {
+
+    const {model, tagline, taglineCTA, image} = props
+
     return (
         <View style={styles.carContainer}>
             <ImageBackground 
-                source={require('../../assets/images/ModelS.jpeg')}
+                source={image}
                 style={styles.image}
             />
             <View style={styles.titles}>
-                <Text style={styles.title}>Model S</Text>
-                <Text style={styles.subtitle}>Starting at $69, 428</Text>
+                <Text style={styles.title}>{model}</Text>
+                <Text style={styles.subtitle}>
+                    {tagline}
+                    {' '}
+                    <Text style={styles.subtitleCTA}>
+                        {taglineCTA}
+                    </Text>
+                </Text>
             </View>
-            <StyledButton 
-                type='primary'
-                content={'Custom Order'} 
-                onPress={() => {
-                    console.warn('Custom Order was pressed')
-                }}
-            />
-            <StyledButton 
-                type='secondary'
-                content={'Existing Inventory'} 
-                onPress={() => {
-                    console.warn('Existing Inventory was pressed')
-                }}
-            />
+            <View style={styles.buttonContainer}>
+                <StyledButton 
+                    type='primary'
+                    content={'Custom Order'} 
+                    onPress={() => {
+                        console.warn('Custom Order was pressed')
+                    }}
+                />
+                <StyledButton 
+                    type='secondary'
+                    content={'Existing Inventory'} 
+                    onPress={() => {
+                        console.warn('Existing Inventory was pressed')
+                    }}
+                />
+            </View>
         </View>
     );
 }
